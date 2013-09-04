@@ -12,4 +12,4 @@
 
 ### Layouts
 - [Twitter Bootstrap 3.0](http://getbootstrap.com/).
-- [JQuery 1.10]('http://jquery.com/').
+- [JQuery 1.10](http://jquery.com/).
