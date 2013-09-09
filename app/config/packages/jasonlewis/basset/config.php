@@ -61,7 +61,7 @@ return array(
             {
                 $collection->stylesheet('bootstrap.min.css');
                 $collection->stylesheet('main.css');
-            });
+            })->apply('UrlRewriteFilter');
 
             $collection->directory('assets/javascripts', function($collection)
             {
