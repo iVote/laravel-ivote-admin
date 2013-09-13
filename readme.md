@@ -6,6 +6,7 @@
 - [Notification](https://github.com/edvinaskrucas/notification). For alert messages.
 - [Ardent](https://github.com/laravelbook/ardent). Form and miscellaneous validations.
 - [Entrust](https://github.com/zizaco/entrust). For roles and permission management.
+- [Confide](https://github.com/Zizaco/confide). For User authentication.
 - [Basset](http://jasonlewis.me/code/basset/4.0). For asset management.
 - [Carbon](https://github.com/briannesbitt/Carbon). For improved php date time management.
 - [Laravel 4 Powerpack](https://github.com/laravelbook/laravel4-powerpack). For more helpers.
