@@ -9,6 +9,7 @@
 	 	"edvinaskrucas/notification": "dev-master",
 	 	"laravelbook/ardent": "dev-master",
 	 	"zizaco/entrust": "dev-master",
+	 	"zizaco/confide": "1.0.x",
 	 	"jasonlewis/basset": "dev-master",
 	 	"nesbot/Carbon": "*",
 	 	"robclancy/presenter": "1.1.*",

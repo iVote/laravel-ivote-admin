@@ -116,6 +116,7 @@ return array(
 
 		/* Additional Providers */
 		'Zizaco\Entrust\EntrustServiceProvider', // Entrust
+		'Zizaco\Confide\ConfideServiceProvider', // Confide
 		'Krucas\Notification\NotificationServiceProvider', // Notification
 		'Basset\BassetServiceProvider', // Basset
 		'Intervention\Image\ImageServiceProvider', // Image Class
@@ -192,6 +193,7 @@ return array(
 
 		/* Additional Aliases */
 		'Entrust'    			=> 'Zizaco\Entrust\EntrustFacade', 
+		'Confide'    			=> 'Zizaco\Confide\ConfideFacade',
 		'Notification' 		=> 'Krucas\Notification\Facades\Notification', 
 	 	'Basset' 					=> 'Basset\Facade', 
 	 	'Image' 					=> 'Intervention\Image\Facades\Image',
