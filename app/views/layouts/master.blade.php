@@ -21,7 +21,7 @@
   
   </head>
 
-  <body>
+  <body class="{{ str_replace('/', ' ', Request::path()) }}">
 
     <div class="container">
       {{-- Header Part --}}
