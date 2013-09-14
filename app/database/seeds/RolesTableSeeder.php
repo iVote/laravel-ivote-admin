@@ -37,10 +37,10 @@ class RolesTableSeeder extends Seeder {
 			array('permission_id' => 9, 'role_id' => 2),
 
 			/* Generator Permissions */
-			array('permission_id' => 9, 'role_id' => 2),
+			array('permission_id' => 9, 'role_id' => 3),
 
 			/* Reports Master Permissions */
-			array('permission_id' => 4, 'role_id' => 2),
+			array('permission_id' => 4, 'role_id' => 4),
 		);
 
 		// Uncomment the below to run the seeder
