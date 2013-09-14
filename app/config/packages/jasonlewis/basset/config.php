@@ -67,6 +67,7 @@ return array(
             {
                 $collection->javascript('jquery-1.10.2.min.js');
                 $collection->javascript('bootstrap.min.js');
+                $collection->javascript('main.js');
             });
         },
 
