@@ -2,6 +2,7 @@
 
 @section( 'contents' )
 	{{ link_to_route( 'roles.index', '&lsaquo; Back' ) }}
+	
 	<h3> {{ isset($role) ? 'Update' : 'Add new' }} role </h3>
 	
 	{{ Notification::showSuccess() }}
@@ -38,8 +39,9 @@
 		<div class="form-group">
 
 			<div class="col-md-offset-2 col-md-5">
-
-				@if ( isset( $role ) && $role->id != 1 )
+	
+				{{{ $role->isAdmin }}}
+				@if ( isset( $role ) && !$role->isAdmin)
 
 					{{ link_to_route( 'roles.delete', 'Delete', $role->id, array( 'class' => 'btn btn-danger' )) }}
 

@@ -4,7 +4,7 @@ use Zizaco\Entrust\EntrustRole;
 
 // Entrust is automatically using Ardent for validation
 // which is really cool in my opinion...
-class Role extends EntrustRole
+class Role extends EntrustRole implements Presentable
 {
 	// Ardent - Auto Hydration
 	public $autoHydrateEntityFromInput    = true;
@@ -37,6 +37,12 @@ class Role extends EntrustRole
 	public function setNameAttribute($value)
   {
       $this->attributes['name'] = ucwords($value);
+  }
+
+  // Presenter - Initializer
+  public function getPresenter()
+  {
+  	return new RolePresenter($this);
   }
 
 }

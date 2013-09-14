@@ -16,7 +16,7 @@
 		<thead>
 			<tr>
 				<th>&nbsp;</th>
-				<th colspan="{{ Permission::count() }}" style="text-align: center;">Permission to fully access:</th>
+				<th colspan="{{ $permissions->count() }}" style="text-align: center;">Permission to fully access:</th>
 			</tr>
 			<tr>
 				<th>Title</th>
@@ -28,20 +28,22 @@
 		<tbody>
 			@foreach($roles as $role)
 			
-			<tr>
+			<tr class="{{ $role->isAdmin ? 'warning' : '' }}" >
 				<td><p class="with-tooltip" title="{{{ $role->description }}}"> {{ link_to_route('roles.show',$role->name, $role->id) }} </p></td>
 				
 				@foreach($permissions as $permission)
+
+				<td>
+
+					@if( $role->isAdmin )
+						<span class="glyphicon glyphicon-ok"></span>
 					
-					<td>
+					@else
+						<a href="{{ route( $permission->roles->contains( $role->id ) ? 'roles.removePerm' : 'roles.assignPerm', array( 'roleId' => $role->id, 'permId' => $permission->id ) ) }}" class="btn btn-sm {{ $permission->roles->contains( $role->id ) ? 'btn-success' : 'btn-default' }}" ><span class="glyphicon glyphicon-ok"></span></a>
+				
+					@endif
 					
-						@if( $permission->roles->contains( $role->id ) )
-							<a href="{{ route( 'roles.removePerm', array( 'roleId' => $role->id, 'permId' => $permission->id ) ) }}" class="btn btn-success btn-sm {{ $role->id == 1 ? 'disabled' : '' }}" ><span class="glyphicon glyphicon-ok"></span></a>
-						@else
-							<a href="{{ route( 'roles.assignPerm', array( 'roleId' => $role->id, 'permId' => $permission->id ) ) }}" class="btn btn-default btn-sm" ><span class="glyphicon glyphicon-ok"></span></a>
-						@endif
-					
-					</td>
+				</td>
 				@endforeach
 			
 			</tr>
