@@ -12,8 +12,7 @@
 	 	"zizaco/confide": "1.0.x",
 	 	"jasonlewis/basset": "dev-master",
 	 	"nesbot/Carbon": "*",
-	 	"robclancy/presenter": "1.1.*",
-	 	"laravelbook/laravel4-powerpack": "dev-master"
+	 	"robclancy/presenter": "1.1.*"
 	},
 	"autoload": {
 		"classmap": [

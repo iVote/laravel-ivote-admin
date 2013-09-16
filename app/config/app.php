@@ -121,7 +121,6 @@ return array(
 		'Basset\BassetServiceProvider', // Basset
 		'Intervention\Image\ImageServiceProvider', // Image Class
 		'Robbo\Presenter\PresenterServiceProvider', // Presenter
-		'LaravelBook\Laravel4Powerpack\Providers\PowerpackServiceProvider', // Laravel Powerpack
 
 		/* Only for Development - Not required for production */
 		'Way\Generators\GeneratorsServiceProvider', // Generators
@@ -199,8 +198,7 @@ return array(
 	 	'Image' 					=> 'Intervention\Image\Facades\Image',
 	 	'Presenter'       => 'Robbo\Presenter\Presenter',
     'Presentable'     => 'Robbo\Presenter\PresentableInterface',
-    'Carbon'          => 'Carbon\Carbon', 
-		'Str' 						=> 'LaravelBook\Laravel4Powerpack\Facades\StrFacade',
+    'Carbon'          => 'Carbon\Carbon'
 	),
 
 );
