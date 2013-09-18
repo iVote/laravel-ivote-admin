@@ -10,15 +10,11 @@ class LookupsTableSeeder extends Seeder {
 		$lookups = array(
 
 			// Members Meta
-			array(  'lookup_types_id' => 1 , 'value' => 'first name', 'is_nullable' => FALSE,  'created_at' => new DateTime(), 'updated_at' => new DateTime() ),
-			array(  'lookup_types_id' => 1 , 'value' => 'last name', 'is_nullable' => FALSE,  'created_at' => new DateTime(), 'updated_at' => new DateTime() ),
-			array(  'lookup_types_id' => 1 , 'value' => 'middle name', 'is_nullable' => TRUE,  'created_at' => new DateTime(), 'updated_at' => new DateTime() ),
 			array(  'lookup_types_id' => 1 , 'value' => 'birthday', 'is_nullable' => FALSE,  'created_at' => new DateTime(), 'updated_at' => new DateTime() ),
 
 			// Administrators Meta
-			array(  'lookup_types_id' => 2, 'value' => 'first name',  'is_nullable' => FALSE, 'created_at' => new DateTime(), 'updated_at' => new DateTime() ),
-			array(  'lookup_types_id' => 2, 'value' => 'lastname name',  'is_nullable' => FALSE, 'created_at' => new DateTime(), 'updated_at' => new DateTime() ),
 			array(  'lookup_types_id' => 2, 'value' => 'middle name',  'is_nullable' => TRUE, 'created_at' => new DateTime(), 'updated_at' => new DateTime() ),
+			
 			//Candidates Meta
 			// array(  'lookup_types_id' => 3, 'value' => '', 'is_nullable' => TRUE,  'created_at' => new DateTime(), 'updated_at' => new DateTime() ),
 			

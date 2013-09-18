@@ -15,6 +15,8 @@ class CreateUserTable extends Migration {
 		Schema::create('users', function(Blueprint $table) {
 			$table->increments( 'id' );
 			$table->text( 'lookup_meta_values' );
+			$table->string( 'firstname' );
+			$table->string( 'lastname' );
 			$table->string( 'username' );
 			$table->string( 'password' );
 			$table->boolean( 'is_verified' )->default( FALSE );			

@@ -17,6 +17,7 @@ class CreateLookupsTable extends Migration {
 			$table->integer( 'lookup_types_id' )->unsigned();
 			$table->string( 'value' );
 			$table->string( 'description' )->nullable();
+			$table->boolean( 'show_in_table' )->default( FALSE );
 			$table->boolean( 'is_nullable' )->default( TRUE );
 			$table->timestamps();
 			$table->softDeletes();
