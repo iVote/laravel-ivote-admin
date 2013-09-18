@@ -14,7 +14,7 @@ class CreateLookupsTable extends Migration {
 	{
 		Schema::create('lookups', function(Blueprint $table) {
 			$table->increments( 'id' );
-			$table->integer( 'lookup_types_id' )->unsigned();
+			$table->integer( 'lookup_type_id' )->unsigned();
 			$table->string( 'value' );
 			$table->string( 'description' )->nullable();
 			$table->boolean( 'show_in_table' )->default( FALSE );
