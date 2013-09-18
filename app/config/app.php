@@ -198,7 +198,8 @@ return array(
 	 	'Image' 					=> 'Intervention\Image\Facades\Image',
 	 	'Presenter'       => 'Robbo\Presenter\Presenter',
     'Presentable'     => 'Robbo\Presenter\PresentableInterface',
-    'Carbon'          => 'Carbon\Carbon'
+    'Carbon'          => 'Carbon\Carbon',
+    'Ardent'					=> 'LaravelBook\Ardent\Ardent'
 	),
 
 );
