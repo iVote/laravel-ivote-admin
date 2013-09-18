@@ -40,7 +40,6 @@
 
 			<div class="col-md-offset-2 col-md-5">
 	
-				{{{ $role->isAdmin }}}
 				@if ( isset( $role ) && !$role->isAdmin)
 
 					{{ link_to_route( 'roles.delete', 'Delete', $role->id, array( 'class' => 'btn btn-danger' )) }}

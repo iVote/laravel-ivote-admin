@@ -6,6 +6,7 @@ class RolesTableSeeder extends Seeder {
 	{
 		// Uncomment the below to wipe the table clean before populating
 		// DB::table('roles')->truncate();
+		// DB::table('permission_role')->truncate();
 
 		$roles = array(
 			array('name' => 'Administrator', 'description' => 'Can do all things.', 'created_at' => new DateTime, 'updated_at' => new DateTime),
