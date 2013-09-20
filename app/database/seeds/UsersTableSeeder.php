@@ -11,16 +11,12 @@ class UsersTableSeeder extends Seeder {
 			array(  
 						'username'             => 'administrator'
 						, 'password'           => Hash::make( 'administrator' )
-						, 'firstname'          => 'admin'
-						, 'lastname'           => 'rator'
+						, 'firstname'          => 'super'
+						, 'lastname'           => 'user'
 						, 'is_verified'        => TRUE 
 						, 'created_at'         => new DateTime()
 						, 'updated_at'         => new DateTime()
-						, 'lookup_meta_values' => json_encode( 
-																				array( 
-																					array( 'lookup_id' => 5 , 'value' => 'ist' )
-																				)
-																			)
+						, 'lookup_meta_values' => json_encode( array( 'metas' => array( array( 'lookup_id' => 2 , 'value' => 'ist' ) ), 'security' => array( 'lookup_id' => 4, 'value' => 'ist' ) ) )
 					),
 			array( 
 						'username'             => 'facilitator'
@@ -30,25 +26,17 @@ class UsersTableSeeder extends Seeder {
 						, 'is_verified'        => TRUE
 						, 'created_at'         =>new DateTime()
 						, 'updated_at'         =>new DateTime()
-						, 'lookup_meta_values' => json_encode( 
-																				array( 
-																					array( 'lookup_id' => 5 , 'value' => 'li' )
-																				)
-																			)
+						, 'lookup_meta_values' => json_encode( array( 'metas' => array( array( 'lookup_id' => 2 , 'value' => 'Chowchow' ) ), 'security' => array( 'lookup_id' => 7, 'value' => 'li' ) ) )
 					),
 			array( 
 						'username'             => 'generator'
-						, 'password'           => Hash::make( 'generator' )
+						, 'password'           => str_random(6)
 						, 'firstname'          => 'gen'
 						, 'lastname'           => 'tor'
 						, 'is_verified'        => FALSE 
 						, 'created_at'         => new DateTime()
 						, 'updated_at'         => new DateTime()
-						, 'lookup_meta_values' => json_encode( 
-																				array( 
-																					array( 'lookup_id' => 5 , 'value' => 'Era' )
-																				)
-																			)
+						, 'lookup_meta_values' => json_encode( array( 'metas' => array( array( 'lookup_id' => 2 , 'value' => 'Era' ) ), 'security' => array() ) )
 					)
 		);
 

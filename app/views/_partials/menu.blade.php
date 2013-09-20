@@ -28,6 +28,7 @@
       <li class="dropdown">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span> Accounts <b class="caret"></b></a>
         <ul class="dropdown-menu">
+          <li><a href="{{ route('users.index') }}">User Accounts</a></li>
           <li><a href="{{ route('roles.index') }}">User Roles</a></li>
         </ul>
       </li>

@@ -12,7 +12,8 @@ class Role extends EntrustRole implements Presentable
 
 	// Ardent - Relational Entities
   public static $relationsData = array(
-  	'permissions' => array(self::BELONGS_TO_MANY, 'Permission', 'table' => 'permission_role')
+		'permissions' => array(self::BELONGS_TO_MANY, 'Permission', 'table' => 'permission_role'),
+		'users'       => array(self::BELONGS_TO_MANY, 'User', 'table' => 'assigned_role')
   );
 
   // Ardent - Validation Rules
