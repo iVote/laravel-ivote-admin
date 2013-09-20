@@ -41,15 +41,29 @@ class User extends Ardent implements UserInterface, RemindableInterface, Present
 
 
 	// Function for newly registered admin accounts
-	public function register()
+	public function addUpdateAccount( $isUpdate = FALSE )
 	{		
 		$role = Role::findOrFail( (int) Input::get( 'role' ) );
-
-		$this->password = str_random( 6 );
+		
 		$this->lookup_meta_values = Input::all();
+
+		if ( $isUpdate ) {
+			// Although this looks redundant, but its a common bug 
+			// for laravel not to update a model with a 'unique' rule
+			$this::$rules = array_merge( self::$rules, array( 'username' => "unique:users,username,{$this->id}" ));
+		}
+
+		else {
+			// Set temporary password for new accounts
+			$this->password = str_random( 6 ); 
+		}
+
 		if ( ! $this->save() ) {
 			return FALSE;
 		}
+
+		// Detach all roles first to make sure
+		$this->roles()->detach();
 
 		// Entrust - attaching a role to user.
 		$this->attachRole( $role );
@@ -71,9 +85,9 @@ class User extends Ardent implements UserInterface, RemindableInterface, Present
 		}
 
 		// Entrust - attaching a role to user.
-		// 
 		$this->roles()->detach();
 
+		// Attach Role
 		$this->attachRole( $role );
 
 		return TRUE;

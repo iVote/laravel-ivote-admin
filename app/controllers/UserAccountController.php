@@ -52,7 +52,7 @@ class UserAccountController extends BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function show($id)
+	public function show( $id )
 	{
 		$user       = User::withTrashed()->find($id);
 		$adminMetas = Lookup::getAdminMetas();
@@ -66,7 +66,7 @@ class UserAccountController extends BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function edit($id)
+	public function edit( $id )
 	{
 		$user       = User::withTrashed()->find( $id );
 		$adminMetas = Lookup::getAdminMetas();
@@ -82,11 +82,11 @@ class UserAccountController extends BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function update($id)
+	public function update( $id )
 	{
 		$user = User::withTrashed()->find( $id );
 
-		if ( ! $user->updateProfile() ) {
+		if ( ! $user->addUpdateAccount( TRUE ) ) {
 			return Redirect::back()->withErrors($user->errors())->withInput();
 		}
 
