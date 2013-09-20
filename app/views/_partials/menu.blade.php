@@ -34,6 +34,9 @@
       </li>
       <li><a href="#"><span class="glyphicon glyphicon-wrench"></span> Settings</a></li>
     </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <li> {{ link_to( 'logout', 'Log out' ) }} </li>
+    </ul>
 
   </div><!-- /.navbar-collapse -->
 
