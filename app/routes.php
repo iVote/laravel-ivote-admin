@@ -56,6 +56,9 @@ Route::get( 'users/{id}/delete', array( 'as' => 'users.delete', 'uses' => 'UserA
 Route::get( 'users/{id}/reactivate', array( 'as' => 'users.reactivate', 'uses' => 'UserAccountController@reactivate' ) );
 
 
+// Positions
+Route::resource( 'positions', 'PositionController' );
+Route::get( 'positions/{id}/delete', array( 'as' => 'positions.delete', 'uses' => 'PositionController@confirmDestroy' ) );
 
 Route::get('/', function()
 {
