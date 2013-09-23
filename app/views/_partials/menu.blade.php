@@ -19,7 +19,7 @@
         <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-cog"></span> Maintenance <b class="caret"></b></a>
         <ul class="dropdown-menu">
           <li><a href="#">Members</a></li>
-          <li><a href="#">Member Groups</a></li>
+          <li><a href="{{ route('groups.index') }}">Member Groups</a></li>
           <li><a href="{{ route('positions.index') }}">Positions</a></li>
           <li><a href="#">Candidates</a></li>
         </ul>

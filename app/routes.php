@@ -60,6 +60,12 @@ Route::get( 'users/{id}/reactivate', array( 'as' => 'users.reactivate', 'uses' =
 Route::resource( 'positions', 'PositionController' );
 Route::get( 'positions/{id}/delete', array( 'as' => 'positions.delete', 'uses' => 'PositionController@confirmDestroy' ) );
 
+
+// Groups
+Route::resource( 'groups', 'GroupController' );
+Route::get( 'groups/{id}/delete', array( 'as' => 'groups.delete', 'uses' => 'GroupController@confirmDestroy' ) );
+
+
 Route::get('/', function()
 {
 	return View::make('dashboard');

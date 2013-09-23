@@ -2,7 +2,7 @@
 
 @section('contents')
 
-	{{ link_to_route( 'users.index', '&lsaquo; Back' ) }}
+	{{ link_to_route( 'positions.index', '&lsaquo; Back' ) }}
 
 	{{ Notification::showSuccess() }}
 

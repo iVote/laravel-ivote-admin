@@ -1,6 +1,6 @@
 <?php
 
-class PositionController extends BaseController {
+class GroupController extends BaseController {
 
 	/**
 	 * Display a listing of the resource.
@@ -9,8 +9,8 @@ class PositionController extends BaseController {
 	 */
 	public function index()
 	{
-		$positions = Position::orderBy('title')->get();
-		return View::make( 'position.index', compact( 'positions' ) );
+		$groups = Group::withTrashed()->with('positions')->orderBy('name')->get();
+		return View::make( 'group.index', compact( 'groups' ) );
 	}
 
 	/**
@@ -20,7 +20,8 @@ class PositionController extends BaseController {
 	 */
 	public function create()
 	{	
-		return View::make( 'position._form' );
+		$positions = Position::all();
+		return View::make( 'group._form', compact( 'positions' ) );
 	}
 
 	/**
@@ -30,11 +31,11 @@ class PositionController extends BaseController {
 	 */
 	public function store()
 	{
-		$position    = new Position;
+		$group    = new Group;
 
-		if (! $position->commit() ) {
+		if (! $group->commit() ) {
 
-			return Redirect::back()->withErrors($position->errors())->withInput();
+			return Redirect::back()->withErrors($group->errors())->withInput();
 
 		}
 
@@ -52,9 +53,9 @@ class PositionController extends BaseController {
 	 */
 	public function show( $id )
 	{
-		$position = Position::withTrashed()->find($id);
+		$group = Group::withTrashed()->find($id);
 
-		return View::make( 'position.show', compact( 'position' ) );
+		return View::make( 'group.show', compact( 'group' ) );
 	}
 
 	/**
@@ -65,8 +66,10 @@ class PositionController extends BaseController {
 	 */
 	public function edit( $id )
 	{
-		$position = Position::withTrashed()->find( $id );
-		return View::make( 'position._form-edit', compact( 'position' ) );
+		$group = Group::withTrashed()->find( $id );
+		$positions = Position::all();
+
+		return View::make( 'group._form-edit', compact( 'group', 'positions' ) );
 
 	}
 
@@ -78,15 +81,15 @@ class PositionController extends BaseController {
 	 */
 	public function update( $id )
 	{
-		$position = Position::withTrashed()->find( $id );
+		$group = Group::withTrashed()->find( $id );
 
-		if ( ! $position->commit( TRUE ) ) {
-			return Redirect::back()->withErrors($position->errors())->withInput();
+		if ( ! $group->commit( TRUE ) ) {
+			return Redirect::back()->withErrors($group->errors())->withInput();
 		}
 
 		Notification::success('This position has been updated');
 
-		return Redirect::route('positions.show', array( $position->id ));
+		return Redirect::route('groups.show', array( $group->id ));
 	}
 
 	/**
@@ -97,16 +100,17 @@ class PositionController extends BaseController {
 	 */
 	public function destroy($id)
 	{
-		Position::destroy($id);
+		Group::find( $id )->positions()->detach();
+		Group::destroy($id);
 
-		return Redirect::route('positions.index');
+		return Redirect::route('groups.index');
 	}
 
 	// Confirm first before deactivating account
 	public function confirmDestroy($id)
 	{
-		$position = Position::find( $id );
-		return View::make( 'position.confirm-destroy', compact( 'position' ) );
+		$group = Group::find( $id );
+		return View::make( 'group.confirm-destroy', compact( 'group' ) );
 	}
 
 }
