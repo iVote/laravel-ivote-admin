@@ -11,53 +11,28 @@
 |
 */
 
-Route::get( 'login',  function() {
+// Route::get( 'login', array( 'as' => 'login', 'uses' => 'SecurityController@login' ) );
+// Route::get( 'logout', array( 'as' => 'logout', 'uses' => 'SecurityController@logout' ) );
 
-	return Auth::check() ? Redirect::to( '/' ) : View::make( 'secure.login' );
+Route::controller( 'security', 'SecurityController' );
 
-});
+Route::group(array('before' => 'auth'), function() {
 
-Route::get( 'logout',  function() {
+	// Roles
+	Route::resource( 'roles', 'UserRoleController' );
+	Route::get( 'roles/{id}/delete', array( 'as' => 'roles.delete', 'uses' => 'UserRoleController@confirmDestroy' ) );
+	Route::get( 'roles/{roleId}/permission/{permId}/assign', array( 'as' => 'roles.assignPerm', 'uses' => 'UserRoleController@assignPermission' ) );
+	Route::get( 'roles/{roleId}/permission/{permId}/remove', array( 'as' => 'roles.removePerm', 'uses' => 'UserRoleController@removePermission' ) );
 
-	Auth::logout();
+	// Users
+	Route::resource( 'users', 'UserAccountController' );
+	Route::get( 'users/{id}/delete', array( 'as' => 'users.delete', 'uses' => 'UserAccountController@confirmDestroy' ) );
+	Route::get( 'users/{id}/reactivate', array( 'as' => 'users.reactivate', 'uses' => 'UserAccountController@reactivate' ) );
 
-	Notification::success( '<span class="glyphicon glyphicon-info-sign"></span> You have successfully logged out' );
+	// Dashboard
+	Route::get('/', function()
+	{
+		return View::make('dashboard');
+	});
 
-	return Redirect::to( 'login' );
-
-});
-
-
-Route::post( 'login', function() {
-
-	$login = array( 'username' => Input::get( 'username' ), 'password' => Input::get( 'password' ) );
-
-	if ( Auth::attempt( $login  ) ) {
-		return Redirect::intended( '/' );
-	}
-
-	Notification::warning( '<span class="glyphicon glyphicon-warning-sign"></span> Incorrect username or password!' );
-
-	return Redirect::to( 'login' );
-
-});
-
-
-// Roles
-Route::resource( 'roles', 'UserRoleController' );
-Route::get( 'roles/{id}/delete', array( 'as' => 'roles.delete', 'uses' => 'UserRoleController@confirmDestroy' ) );
-Route::get( 'roles/{roleId}/permission/{permId}/assign', array( 'as' => 'roles.assignPerm', 'uses' => 'UserRoleController@assignPermission' ) );
-Route::get( 'roles/{roleId}/permission/{permId}/remove', array( 'as' => 'roles.removePerm', 'uses' => 'UserRoleController@removePermission' ) );
-
-
-// Users
-Route::resource( 'users', 'UserAccountController' );
-Route::get( 'users/{id}/delete', array( 'as' => 'users.delete', 'uses' => 'UserAccountController@confirmDestroy' ) );
-Route::get( 'users/{id}/reactivate', array( 'as' => 'users.reactivate', 'uses' => 'UserAccountController@reactivate' ) );
-
-
-
-Route::get('/', function()
-{
-	return View::make('dashboard');
 });

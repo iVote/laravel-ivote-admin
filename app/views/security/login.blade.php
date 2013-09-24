@@ -73,7 +73,7 @@
 
         <div class="col-md-12">
 
-        	{{ Form::open( array( 'url' => 'login', 'method' => 'POST', 'class' => 'form-signin' ) ) }}
+        	{{ Form::open( array( 'url' => 'security/authenticate', 'method' => 'POST', 'class' => 'form-signin' ) ) }}
 						{{ Notification::showSuccess() }}
 						{{ Notification::showWarning() }}
 						

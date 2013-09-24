@@ -35,7 +35,11 @@ App::after(function($request, $response)
 
 Route::filter('auth', function()
 {
-	if (Auth::guest()) return Redirect::guest('login');
+	if ( Auth::guest() ) return Redirect::guest( 'security/login' );
+
+	if ( ! Auth::user()->is_verified ) {
+		return "not verified";
+	}
 });
 
 
