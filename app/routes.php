@@ -11,9 +11,6 @@
 |
 */
 
-// Route::get( 'login', array( 'as' => 'login', 'uses' => 'SecurityController@login' ) );
-// Route::get( 'logout', array( 'as' => 'logout', 'uses' => 'SecurityController@logout' ) );
-
 Route::controller( 'security', 'SecurityController' );
 
 Route::group(array('before' => 'auth'), function() {
@@ -28,6 +25,14 @@ Route::group(array('before' => 'auth'), function() {
 	Route::resource( 'users', 'UserAccountController' );
 	Route::get( 'users/{id}/delete', array( 'as' => 'users.delete', 'uses' => 'UserAccountController@confirmDestroy' ) );
 	Route::get( 'users/{id}/reactivate', array( 'as' => 'users.reactivate', 'uses' => 'UserAccountController@reactivate' ) );
+
+	// Positions
+	Route::resource( 'positions', 'PositionController' );
+	Route::get( 'positions/{id}/delete', array( 'as' => 'positions.delete', 'uses' => 'PositionController@confirmDestroy' ) );
+
+	// Groups
+	Route::resource( 'groups', 'GroupController' );
+	Route::get( 'groups/{id}/delete', array( 'as' => 'groups.delete', 'uses' => 'GroupController@confirmDestroy' ) );
 
 	// Dashboard
 	Route::get('/', function()
