@@ -17,7 +17,6 @@ class CreatePositionsTable extends Migration {
 			$table->string( 'title' );
 			$table->string( 'short_description' );
 			$table->integer( 'limit' );
-			$table->boolean( 'is_group_dependent' )->default( FALSE );
 			$table->timestamps();
 		});
 	}

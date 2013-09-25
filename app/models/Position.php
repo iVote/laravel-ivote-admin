@@ -5,16 +5,17 @@ use LaravelBook\Ardent\Ardent;
 
 class Position extends Ardent implements Presentable
 {
+	
 	// Ardent - Auto Hydration
 	public $autoHydrateEntityFromInput    = true;
 	public $forceEntityHydrationFromInput = true;
 
 	// Ardent - Relational Entities
-  public static $relationsData = array(
+	public static $relationsData = array(
 		'groups' => array(self::BELONGS_TO_MANY, 'Group', 'table' => 'positions_groups')
-  );
+	);
 
-  // Ardent - Validation Rules
+	// Ardent - Validation Rules
 	public static $rules = array(
 		'title' => array('required', 'unique:positions'),
 		'limit' => array('required', 'integer', 'min:1')
@@ -26,7 +27,13 @@ class Position extends Ardent implements Presentable
 	);
 
 	// Laravel - Fillable Attributes
-	protected $fillable = array('title', 'short_description', 'limit', 'is_group_dependent');
+	protected $fillable = array('title', 'short_description', 'limit');
+
+
+
+
+	#============= Start of Methods ================#
+
 
 	// Function for newly registered admin accounts
 	public function commit( $isUpdate = FALSE )
@@ -47,14 +54,14 @@ class Position extends Ardent implements Presentable
 
 	// Mutator
 	public function setTitleAttribute($value)
-  {
-      $this->attributes['title'] = ucwords(strtolower($value));
-  }
+	{
+		$this->attributes['title'] = ucwords(strtolower($value));
+	}
 
-  // Presenter - Initializer
-  public function getPresenter()
-  {
-  	return new PositionPresenter($this);
-  }
+	// Presenter - Initializer
+	public function getPresenter()
+	{
+		return new PositionPresenter($this);
+	}
 
 }

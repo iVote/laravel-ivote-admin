@@ -16,9 +16,9 @@ class CreatePositionsGroupsTable extends Migration {
 		{
 			$table->increments('id');
 			$table->integer('position_id')->unsigned();
-      $table->integer('group_id')->unsigned();
-      $table->foreign('position_id')->references('id')->on('positions'); // assumes a users table
-      $table->foreign('group_id')->references('id')->on('groups');
+			$table->integer('group_id')->unsigned();
+			$table->foreign('position_id')->references('id')->on('positions'); // assumes a users table
+			$table->foreign('group_id')->references('id')->on('groups');
 		});
 	}
 

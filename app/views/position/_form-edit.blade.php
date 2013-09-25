@@ -47,15 +47,6 @@
 		</div>
 
 		<div class="form-group">
-			{{ Form::label( 'is_group_dependent', 'Is Group Dependent?', array( 'class' => 'col-md-2 control-label' )) }}
-
-			<div class="col-md-5">
-				{{ Form::checkbox( 'is_group_dependent', true , $position->is_group_dependent, array( 'class' => 'form-control' )) }}
-			</div>
-
-		</div>
-
-		<div class="form-group">
 
 			<div class="col-md-offset-2 col-md-5">
 

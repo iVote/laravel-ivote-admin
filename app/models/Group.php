@@ -5,14 +5,15 @@ use LaravelBook\Ardent\Ardent;
 
 class Group extends Ardent implements Presentable
 {
+	
 	// Ardent - Auto Hydration
 	public $autoHydrateEntityFromInput    = true;
 	public $forceEntityHydrationFromInput = true;
 
 	// Ardent - Relational Entities
-  public static $relationsData = array(
+	public static $relationsData = array(
 		'positions' => array(self::BELONGS_TO_MANY, 'Position', 'table' => 'positions_groups')
-  );
+	);
 
   // Ardent - Validation Rules
 	public static $rules = array(
@@ -26,6 +27,12 @@ class Group extends Ardent implements Presentable
 
 	// Laravel - Fillable Attributes
 	protected $fillable = array('name', 'short_description');
+
+
+
+
+	#============= Start of Methods ================#
+
 
 	// Function for newly registered admin accounts
 	public function commit( $isUpdate = FALSE )
@@ -49,14 +56,14 @@ class Group extends Ardent implements Presentable
 
 	// Mutator
 	public function setNameAttribute($value)
-  {
-      $this->attributes['name'] = ucwords(strtolower($value));
-  }
+	{
+		$this->attributes['name'] = ucwords(strtolower($value));
+	}
 
-  // Presenter - Initializer
-  public function getPresenter()
-  {
-  	return new GroupPresenter($this);
-  }
+	// Presenter - Initializer
+	public function getPresenter()
+	{
+		return new GroupPresenter($this);
+	}
 
 }

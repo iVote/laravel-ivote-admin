@@ -21,10 +21,6 @@
 			<dl class="dl-horizontal">
 				<dt> Limit: </dt> <dd> {{{ $position->limit }}} </dd>
 			</dl>
-
-			<dl class="dl-horizontal">
-				<dt> Is Group Dependent?: </dt> <dd> {{ $position->is_group_dependent ? "YES" : "NO" }} </dd>
-			</dl>
 		</div>
 
 		<div class="col-md-3">

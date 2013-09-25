@@ -27,7 +27,7 @@
 			<tr>
 				<td> {{ link_to_route( 'groups.show', $group->name, $group->id ) }} </td>
 				<td> {{{ $group->short_description }}} </td>
-				<td> {{{ $group->positionsvalue }}} </td>
+				<td> {{{ $group->positionslist }}} </td>
 			</tr>
 
 			@endforeach

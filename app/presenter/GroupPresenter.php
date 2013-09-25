@@ -5,14 +5,14 @@
 */
 class GroupPresenter extends Presenter
 {
-	public function presentPositionsValue()
+	public function presentPositionsList()
 	{ 
-		$positionLabel = '';
+		$positionsList = '';
 
 		foreach ($this->positions as $position) {
-			$positionLabel .= $position->title . ', ';
+			$positionsList .= $position->title . ', ';
 		}
 
-		return $positionLabel;
+		return $positionsList;
 	}
 }
