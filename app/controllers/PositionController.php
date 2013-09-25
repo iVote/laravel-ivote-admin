@@ -9,7 +9,8 @@ class PositionController extends BaseController {
 	 */
 	public function index()
 	{
-		$positions = Position::orderBy('title')->get();
+		$positions 	= Position::where('title', 'LIKE', '%' . Input::get( 'search', '' ) . '%')->orderBy('title')->get();
+
 		return View::make( 'position.index', compact( 'positions' ) );
 	}
 
