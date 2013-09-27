@@ -34,7 +34,7 @@ class Group extends Ardent implements Presentable
 	#============= Start of Methods ================#
 
 
-	// Function for newly registered admin accounts
+	// Function for newly added group
 	public function commit( $isUpdate = FALSE )
 	{		
 		if ( $isUpdate ) {
@@ -48,10 +48,16 @@ class Group extends Ardent implements Presentable
 		}
 
 		// Entrust - attaching position/s to group.
-		$this->positions()->sync( is_array( Input::get( 'positions' ) ) ? Input::get( 'positions' ) : array() );
+		$this->positions()->sync( Input::get( 'positions' , array() ) );
 
 		return TRUE;
 
+	}
+
+	// Function for search
+	public static function searchGroup()
+	{
+		return static::where('name', 'LIKE', '%' . Input::get( 'search', '' ) . '%');
 	}
 
 	// Mutator

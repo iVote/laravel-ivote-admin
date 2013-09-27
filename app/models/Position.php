@@ -35,7 +35,7 @@ class Position extends Ardent implements Presentable
 	#============= Start of Methods ================#
 
 
-	// Function for newly registered admin accounts
+	// Function for newly add position
 	public function commit( $isUpdate = FALSE )
 	{		
 		if ( $isUpdate ) {
@@ -50,6 +50,12 @@ class Position extends Ardent implements Presentable
 
 		return TRUE;
 
+	}
+
+	// Function for search
+	public static function searchPosition()
+	{
+		return static::where('title', 'LIKE', '%' . Input::get( 'search', '' ) . '%');
 	}
 
 	// Mutator

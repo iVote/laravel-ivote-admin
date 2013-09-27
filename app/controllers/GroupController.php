@@ -9,7 +9,10 @@ class GroupController extends BaseController {
 	 */
 	public function index()
 	{
-		$groups = Group::where('name', 'LIKE', '%' . Input::get( 'search', '' ) . '%')->orderBy('name')->get();
+		$groups = Group::searchGroup()
+						->orderBy('name')
+						->get();
+
 		return View::make( 'group.index', compact( 'groups' ) );
 	}
 
