@@ -1,7 +1,5 @@
 @extends('layouts.master')
 
-<?php ViewHelper::setPage('group'); ?>
-
 @section('contents')
 
 <h1>Groups</h1>

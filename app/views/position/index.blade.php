@@ -1,7 +1,5 @@
 @extends('layouts.master')
 
-<?php ViewHelper::setPage('position'); ?>
-
 @section('contents')
 
 <h1>Positions</h1>
